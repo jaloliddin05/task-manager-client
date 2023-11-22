@@ -1,94 +1,70 @@
 <template>
   <q-layout view="hHh Lpr lFf">
-    <q-header elevated class="bg-dark">
+    <q-header elevated class="bg-dark q-pa-xs">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title>
+          <q-btn color="dark" rounded style="border:1px solid #ffffff86">
+            <q-icon name="add" color="red" /> Create
+          </q-btn>
+        </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn round>
+          <router-link to="/profile/1">
+            <q-avatar size="42px">
+              <img src="https://cdn.quasar.dev/img/avatar4.jpg" />
+            </q-avatar>
+          </router-link>
+        </q-btn>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-dark" :width="250">
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <SidebarLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
+      </q-list>
+      <q-separator inset color="white" class="q-mt-sm" />
+      <q-list>
+        <q-item-label header class="text-white"> Projects </q-item-label>
       </q-list>
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <div class="q-pa-md">
+        <router-view />
+      </div>
     </q-page-container>
   </q-layout>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
+import SidebarLink from 'src/components/shared/SidebarLink.vue';
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
+    title: 'Home',
+    icon: 'home',
+    link: '/',
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
+    title: 'My tasks',
+    icon: 'done',
+    link: '/my-tasks',
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
+    title: 'My Workspace',
+    icon: 'group',
+    link: '/workspace',
+  }
 ];
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink,
+    SidebarLink,
   },
 
   setup() {
