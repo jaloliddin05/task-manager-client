@@ -2,7 +2,7 @@
   "name": "task-manager-client",
   "version": "0.0.1",
   "description": "task-manager",
-  "productName": "task-manager-app",
+  "productName": "asana-app",
   "author": "Jaloliddin",
   "private": true,
   "scripts": {
