@@ -1,24 +1,7 @@
 <template>
   <q-layout view="hHh Lpr lFf">
-    <q-header elevated class="bg-dark q-pa-xs">
-      <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title>
-          <q-btn color="dark" rounded style="border:1px solid #ffffff86">
-            <q-icon name="add" color="red" /> Create
-          </q-btn>
-        </q-toolbar-title>
-
-        <q-btn round>
-          <router-link to="/profile/1">
-            <q-avatar size="42px">
-              <img src="https://cdn.quasar.dev/img/avatar4.jpg" />
-            </q-avatar>
-          </router-link>
-        </q-btn>
-      </q-toolbar>
-    </q-header>
+    <HeaderCommponent @toggleLeftDrawer="toggleLeftDrawer"></HeaderCommponent>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-dark" :width="250">
       <q-list>
@@ -40,6 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import HeaderCommponent from 'src/components/shared/HeaderCommponent.vue';
 import SidebarLink from 'src/components/shared/SidebarLink.vue';
 
 const linksList = [
@@ -65,6 +49,7 @@ export default defineComponent({
 
   components: {
     SidebarLink,
+    HeaderCommponent
   },
 
   setup() {
