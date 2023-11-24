@@ -4,7 +4,7 @@
       <q-icon :name="icon" />
     </q-item-section>
 
-    <q-item-section>
+    <q-item-section class="sidebar-title">
       <q-item-label>{{ title }}</q-item-label>
     </q-item-section>
   </q-item>
@@ -38,3 +38,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+.sidebar-title {
+  margin-left: -15px;
+}
+</style>

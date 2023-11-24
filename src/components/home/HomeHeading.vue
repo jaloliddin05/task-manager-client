@@ -1,9 +1,10 @@
 <template>
-  <q-page>Sign in</q-page>
+    <div>Home</div>
 </template>
-
+  
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({});
 </script>
+  

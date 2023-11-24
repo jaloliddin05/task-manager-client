@@ -1,5 +1,5 @@
 <template>
-  <div>My tasks</div>
+  <q-page>My tasks</q-page>
 </template>
 
 <script lang="ts">

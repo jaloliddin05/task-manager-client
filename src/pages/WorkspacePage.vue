@@ -1,5 +1,5 @@
 <template>
-  <div>Workspace</div>
+  <q-page>Workspace</q-page>
 </template>
 
 <script lang="ts">

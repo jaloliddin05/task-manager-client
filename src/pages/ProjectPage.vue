@@ -1,5 +1,5 @@
 <template>
-  <div>Project</div>
+  <q-page>Project</q-page>
 </template>
 
 <script lang="ts">
