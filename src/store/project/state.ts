@@ -1,14 +1,18 @@
 import { Project } from 'src/models';
 
 export interface ProjectStateInterface {
-  taskDetail: Project | null;
-  myTasks: Project[];
+  projectDetail: Project | null;
+  projects: Project[];
+  createProjectModal: boolean;
+  updateProjectModal: boolean;
 }
 
 function state(): ProjectStateInterface {
   return {
-    taskDetail: null,
-    myTasks: [],
+    projectDetail: null,
+    projects: [],
+    createProjectModal: false,
+    updateProjectModal: false,
   };
 }
 

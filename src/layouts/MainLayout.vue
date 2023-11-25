@@ -10,6 +10,8 @@
       <q-separator inset color="white" class="q-mt-sm" />
       <q-list>
         <q-item-label header class="text-white"> Projects </q-item-label>
+        <SidebarLink v-for="pr in projects" :key="pr.id" :title="pr.title" :link="`/project/${pr.id}`"
+          :icon="'check_box_outline_blank'" :color="pr.color" />
       </q-list>
     </q-drawer>
 
@@ -23,8 +25,10 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import HeaderCommponent from 'src/components/shared/HeaderCommponent.vue';
+import { useStore } from 'src/store';
+import { mapActions, mapState } from 'vuex';
 import SidebarLink from 'src/components/shared/SidebarLink.vue';
+import HeaderCommponent from 'src/components/shared/HeaderCommponent.vue';
 
 const linksList = [
   {
@@ -54,6 +58,7 @@ export default defineComponent({
 
   setup() {
     const leftDrawerOpen = ref(false);
+    const store = useStore()
 
     return {
       essentialLinks: linksList,
@@ -61,7 +66,21 @@ export default defineComponent({
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
+      store
     };
   },
+  methods: {
+    ...mapActions({
+      getMyProjects: 'project/getMyProjects',
+    })
+  },
+  computed: {
+    ...mapState({
+      projects: (state: any) => state.project.projects
+    })
+  },
+  async mounted() {
+    await this.getMyProjects()
+  }
 });
 </script>

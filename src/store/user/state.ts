@@ -1,13 +1,13 @@
 import { User } from 'src/models';
 
 export interface UserStateInterface {
-  taskDetail: User | null;
+  user: User | null;
   myTasks: User[];
 }
 
 function state(): UserStateInterface {
   return {
-    taskDetail: null,
+    user: null,
     myTasks: [],
   };
 }

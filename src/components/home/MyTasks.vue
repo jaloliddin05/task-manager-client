@@ -5,7 +5,10 @@
                 <q-avatar color="primary" text-color="white">J</q-avatar>
             </div>
             <div class="column items-start col-10">
-                <q-title class="q-mt-lg">My Tasks</q-title>
+                <div class="row q-mt-lg items-center">
+                    <h6 class="card-heading">My Tasks</h6>
+                    <q-icon name="lock" />
+                </div>
                 <q-tabs v-model="tab" dense class="text-grey" active-color="dark" indicator-color="dark">
                     <q-tab name="mails" label="Upcaming" />
                     <q-tab name="alarms" label="Overdue" />

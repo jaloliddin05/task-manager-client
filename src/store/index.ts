@@ -11,16 +11,19 @@ import user from './user';
 import project from './project';
 import task from './task';
 import section from './section';
+import auth from './auth';
 import { UserStateInterface } from './user/state';
 import { ProjectStateInterface } from './project/state';
 import { TaskStateInterface } from './task/state';
 import { SectionStateInterface } from './section/state';
+import { AuthStateInterface } from './auth/state';
 
 export interface StateInterface {
   user: UserStateInterface;
   project: ProjectStateInterface;
   task: TaskStateInterface;
   section: SectionStateInterface;
+  auth: AuthStateInterface;
 }
 
 // provide typings for `this.$store`
@@ -44,6 +47,7 @@ declare module 'vuex' {
 export default store(function (/* { ssrContext } */) {
   const Store = createStore<StateInterface>({
     modules: {
+      auth,
       user,
       project,
       task,

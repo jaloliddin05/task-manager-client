@@ -10,6 +10,11 @@ const actions: ActionTree<UserStateInterface, StateInterface> = {
     commit('getAll', data);
   },
 
+  async getMe({ commit }: { commit: Commit }) {
+    const { data } = await userService.getMe();
+    commit('getMe', data);
+  },
+
   async getOne({ commit }: { commit: Commit }, id: string) {
     const { data } = await userService.getOne(id);
     commit('getOne', data);

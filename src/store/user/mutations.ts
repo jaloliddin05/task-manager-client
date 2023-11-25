@@ -8,7 +8,11 @@ const mutation: MutationTree<UserStateInterface> = {
   },
 
   getOne(state: UserStateInterface, data: User) {
-    state.taskDetail = data;
+    state.user = data;
+  },
+
+  getMe(state: UserStateInterface, data: User) {
+    state.user = data;
   },
 
   create(state: UserStateInterface, type: User) {

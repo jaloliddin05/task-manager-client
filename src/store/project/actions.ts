@@ -15,6 +15,11 @@ const actions: ActionTree<ProjectStateInterface, StateInterface> = {
     commit('getOne', data);
   },
 
+  async getMyProjects({ commit }: { commit: Commit }) {
+    const { data } = await projectService.getMyProjects();
+    commit('getMyProjects', data);
+  },
+
   async create({ commit }: { commit: Commit }, createData: CreateProjectDto) {
     const { data } = await projectService.create(createData);
     commit('create', data);
@@ -31,6 +36,14 @@ const actions: ActionTree<ProjectStateInterface, StateInterface> = {
   async remove({ commit }: { commit: Commit }, id: string) {
     await projectService.deleteOne(id);
     commit('remove', id);
+  },
+
+  changeCreateModal({ commit }: { commit: Commit }, bool: boolean) {
+    commit('changeCreateModal', bool);
+  },
+
+  changeUpdateModal({ commit }: { commit: Commit }, bool: boolean) {
+    commit('changeUpdateModal', bool);
   },
 };
 

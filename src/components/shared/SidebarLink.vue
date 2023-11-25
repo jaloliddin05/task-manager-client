@@ -1,7 +1,7 @@
 <template>
   <q-item class="text-white" clickable @click="navigate">
     <q-item-section v-if="icon" avatar>
-      <q-icon :name="icon" />
+      <q-icon :name="icon" :color="color" />
     </q-item-section>
 
     <q-item-section class="sidebar-title">
@@ -26,6 +26,10 @@ export default defineComponent({
     },
 
     icon: {
+      type: String,
+      default: '',
+    },
+    color: {
       type: String,
       default: '',
     },

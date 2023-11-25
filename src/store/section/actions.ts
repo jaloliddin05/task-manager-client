@@ -17,7 +17,7 @@ const actions: ActionTree<SectionStateInterface, StateInterface> = {
 
   async create({ commit }: { commit: Commit }, createData: CreateSectionDto) {
     const { data } = await sectionService.create(createData);
-    commit('create', data);
+    commit('project/addSectionToProject', data, { root: true });
   },
 
   async update(

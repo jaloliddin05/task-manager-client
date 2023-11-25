@@ -24,7 +24,7 @@ export default defineComponent({
     MyProjects,
     MyTeamTasks,
     MyCollobrators
-  }
+  },
 });
 </script>
 
@@ -38,5 +38,17 @@ export default defineComponent({
 .card-item:hover {
   cursor: grab;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.card-heading {
+  font-size: 18px;
+  border-bottom: 2px solid transparent;
+  color: #4A4B4D;
+  padding: 0px 15px;
+  margin: 0;
+}
+
+.card-heading:hover {
+  border-bottom: 2px solid #4A4B4D;
 }
 </style>
