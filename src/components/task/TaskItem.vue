@@ -3,8 +3,9 @@
         <q-card class="my-card full-width">
             <q-card-section class="row items-center full-width">
                 <q-icon name="done" />
-                <div class="text-h6 task-title">{{ task?.title }}</div>
+                <div class="task-title">{{ task?.title }}</div>
             </q-card-section>
+            <q-card-section></q-card-section>
         </q-card>
     </q-item>
 </template>
@@ -14,7 +15,6 @@ import { Task } from 'src/models';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-
     props: {
         task: Object as () => Task
     }
@@ -24,7 +24,6 @@ export default defineComponent({
 
 <style scoped>
 .task-title {
-    color: gray;
     margin-left: 10px;
 }
 </style>

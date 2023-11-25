@@ -38,6 +38,10 @@ const actions: ActionTree<ProjectStateInterface, StateInterface> = {
     commit('remove', id);
   },
 
+  addNewTask({ commit }: { commit: Commit }, { data, id }) {
+    commit('addNewTask', { data, id });
+  },
+
   changeCreateModal({ commit }: { commit: Commit }, bool: boolean) {
     commit('changeCreateModal', bool);
   },

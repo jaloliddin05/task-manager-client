@@ -18,6 +18,7 @@ const actions: ActionTree<TaskStateInterface, StateInterface> = {
   async create({ commit }: { commit: Commit }, createData: CreateTaskDto) {
     const { data } = await taskService.create(createData);
     commit('create', data);
+    commit('project/addNewTask', {data,id:createData.section}, {root:true})
   },
 
   async update(

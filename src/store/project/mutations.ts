@@ -34,6 +34,11 @@ const mutation: MutationTree<ProjectStateInterface> = {
     state.projectDetail?.sections.push(data);
   },
 
+  addNewTask(state: ProjectStateInterface, { data, id }) {
+    const section = state.projectDetail?.sections.find((s) => s.id == id);
+    section?.tasks.push(data);
+  },
+
   changeCreateModal(state: ProjectStateInterface, bool: boolean) {
     state.createProjectModal = bool;
   },
