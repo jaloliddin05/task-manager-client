@@ -1,4 +1,11 @@
-interface User {}
+interface User {
+  id: string;
+  firstName: null;
+  lastName: string;
+  login: string;
+  email: string;
+  phone: string;
+}
 
 export interface SignUpDto {}
 

@@ -69,18 +69,14 @@ export default defineComponent({
       store
     };
   },
-  methods: {
-    ...mapActions({
-      getMyProjects: 'project/getMyProjects',
-    })
-  },
   computed: {
     ...mapState({
       projects: (state: any) => state.project.projects
     })
   },
   async mounted() {
-    await this.getMyProjects()
+    await this.store.dispatch('project/getMyProjects')
+    await this.store.dispatch('user/getMe')
   }
 });
 </script>

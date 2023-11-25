@@ -1,18 +1,24 @@
 <template>
     <q-item class="section-box column">
-        <div class="full-width row section-title-box">
+        <div class="full-width row">
             <p class="section-title">{{ section?.title }}</p>
         </div>
-        <div class="full-width section-body"></div>
+        <div class="full-width section-body">
+            <TaskList :tasks="section?.tasks" :section="section?.id" />
+        </div>
     </q-item>
 </template>
   
 <script lang="ts">
+import { defineComponent, ref } from 'vue';
 import { Section } from 'src/models';
 import { useStore } from 'src/store';
-import { defineComponent, ref } from 'vue';
+import TaskList from '../task/TaskList.vue';
 
 export default defineComponent({
+    components: {
+        TaskList
+    },
     setup() {
         const store = useStore()
 
@@ -33,13 +39,7 @@ export default defineComponent({
     width: 330px;
     border: 1px solid transparent;
     padding: 10px;
-    pointer-events: none;
     transition: all 0.5s ease;
-}
-
-.section-title-box {
-    pointer-events: auto;
-    cursor: pointer;
 }
 
 .section-box:hover {
